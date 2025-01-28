@@ -1,10 +1,11 @@
 import express from "express";
-const port = process.env.PORT || 3333;
+import { env } from "./config/dot-env-config";
+import setupRoutes from "./routes";
+const port = env.PORT || 3333;
 const app = express();
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({ msg: "Ola willian" });
-});
+setupRoutes(app);
 
 app.listen(port, () => {
   console.log(`Server is Running on port: ${port}`);
