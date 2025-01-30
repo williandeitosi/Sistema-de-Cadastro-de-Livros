@@ -13,7 +13,7 @@ export class UserService {
     const isExists = await this.findByEmail(email);
 
     if (isExists) {
-      throw new Error("Usuário ja existe");
+      throw new Error("User already exists!");
     }
 
     const hashPassword = await bcrypt.hash(password, 8);
@@ -30,13 +30,13 @@ export class UserService {
     const user = await this.findByEmail(email);
 
     if (!user) {
-      throw new Error("Usuário não existe");
+      throw new Error("User not found");
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      throw new Error("Credenciais inválidas");
+      throw new Error("Invalid credentials");
     }
 
     const payload = {
