@@ -9,6 +9,9 @@ const userRoutes = (app: Application) => {
   app.post("/register", (req, res) => {
     userController.register(req, res);
   });
+  app.post("/login", (req, res) => {
+    userController.login(req, res);
+  });
 };
 
 export default userRoutes;
