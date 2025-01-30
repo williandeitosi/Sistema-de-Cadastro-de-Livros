@@ -10,7 +10,7 @@ const _env = envSchema.safeParse(process.env);
 
 if (!_env.success) {
   console.error(
-    "⚠️ Configuração inválida para as variáveis de ambiente:",
+    "Configuração inválida para as variáveis de ambiente:",
     _env.error.format()
   );
   process.exit(1);
